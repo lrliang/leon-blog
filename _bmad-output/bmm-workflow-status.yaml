@@ -84,17 +84,20 @@ workflow_status:
     workflows:
       - id: "create-architecture"
         name: "Architecture"
-        status: "required"
+        status: "_bmad-output/architecture.md"
         agent: "architect"
         command: "*create-architecture"
         output: "System architecture document"
+        completedAt: "2025-12-23"
+        note: "已完成 - 15+架构决策，完整项目结构，实现就绪"
 
       - id: "create-epics-and-stories"
         name: "Epics & Stories"
-        status: "required"
+        status: "_bmad-output/epics.md"
         agent: "pm"
         command: "*create-epics-and-stories"
-        note: "拆分 PRD 为可实施的史诗和故事"
+        completedAt: "2025-12-23"
+        note: "已完成 - 7个Epic，37个Stories"
 
       - id: "test-design"
         name: "Test Design"
