@@ -70,11 +70,13 @@ workflow_status:
 
       - id: "create-ux-design"
         name: "UX Design"
-        status: "conditional"
+        status: "_bmad-output/ux-design-specification.md"
         condition: "if_has_ui"
         agent: "ux-designer"
         command: "*create-ux-design"
-        note: "项目有 UI 需求，建议完成"
+        output: "UX Design Specification"
+        completedAt: "2025-12-23"
+        note: "已完成 - 14步完整UX设计规格"
 
   # Phase 2: Solutioning
   - phase: 2

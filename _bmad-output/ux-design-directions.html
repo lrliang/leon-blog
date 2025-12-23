@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leon Blog - Design Directions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563EB;
+            --primary-hover: #1D4ED8;
+            --primary-muted: #DBEAFE;
+            --background: #FFFFFF;
+            --surface: #F8FAFC;
+            --border: #E2E8F0;
+            --text-primary: #0F172A;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --success: #10B981;
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 8px;
+        }
+
+        .dark {
+            --primary: #3B82F6;
+            --primary-hover: #60A5FA;
+            --primary-muted: #1E3A5F;
+            --background: #0F172A;
+            --surface: #1E293B;
+            --border: #334155;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--background);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .nav-title {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .direction-tabs {
+            display: flex;
+            gap: 4px;
+            background: var(--surface);
+            padding: 4px;
+            border-radius: var(--radius-md);
+        }
+
+        .direction-tab {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .direction-tab:hover {
+            color: var(--text-primary);
+        }
+
+        .direction-tab.active {
+            background: var(--background);
+            color: var(--primary);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .theme-toggle {
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-primary);
+            cursor: pointer;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+
+        .direction-view {
+            display: none;
+        }
+
+        .direction-view.active {
+            display: block;
+        }
+
+        /* Direction 1: Minimal Pure */
+        .d1-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 96px 24px;
+        }
+
+        .d1-greeting {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .d1-name {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .d1-title {
+            font-size: 24px;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+        }
+
+        .d1-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            padding: 14px 28px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            padding: 14px 28px;
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Direction 2: Card Grid */
+        .d2-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        .d2-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .d2-header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .d2-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+
+        .d2-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .d2-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .d2-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .d2-card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-muted);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .d2-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .d2-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Direction 3: Single Column Narrative */
+        .d3-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 96px 24px;
+        }
+
+        .d3-section {
+            margin-bottom: 96px;
+        }
+
+        .d3-section h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .d3-section h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+
+        .d3-section p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.75;
+        }
+
+        .d3-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .d3-link:hover {
+            text-decoration: underline;
+        }
+
+        .d3-articles {
+            list-style: none;
+        }
+
+        .d3-articles li {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .d3-articles a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .d3-articles a:hover {
+            color: var(--primary);
+        }
+
+        .d3-articles .date {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        /* Direction 4: Split Layout */
+        .d4-container {
+            display: flex;
+            min-height: calc(100vh - 80px);
+        }
+
+        .d4-sidebar {
+            width: 280px;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            padding: 48px 32px;
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+        }
+
+        .d4-sidebar-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .d4-sidebar-title {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .d4-nav {
+            list-style: none;
+            margin-bottom: 48px;
+        }
+
+        .d4-nav li {
+            margin-bottom: 12px;
+        }
+
+        .d4-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .d4-nav a:hover, .d4-nav a.active {
+            color: var(--primary);
+        }
+
+        .d4-social {
+            display: flex;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .d4-social-icon {
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .d4-main {
+            flex: 1;
+            padding: 48px;
+            max-width: 800px;
+        }
+
+        .d4-main h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .d4-post-list {
+            list-style: none;
+        }
+
+        .d4-post-item {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .d4-post-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .d4-post-excerpt {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .d4-post-meta {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .d4-tags {
+            display: flex;
+            gap: 8px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .d4-tag {
+            padding: 6px 12px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Direction 5: Full-width Immersive */
+        .d5-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1E40AF 100%);
+            color: white;
+            padding: 120px 24px;
+            text-align: center;
+        }
+
+        .d5-hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .d5-hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .d5-hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .d5-btn-light {
+            padding: 14px 28px;
+            background: white;
+            color: var(--primary);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .d5-btn-outline {
+            padding: 14px 28px;
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .d5-sections {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 1200px;
+            margin: -40px auto 0;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .d5-section-card {
+            background: var(--background);
+            border: 1px solid var(--border);
+            padding: 32px;
+            text-align: center;
+        }
+
+        .d5-section-card:first-child {
+            border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+        }
+
+        .d5-section-card:last-child {
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        }
+
+        .d5-section-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .d5-section-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Direction 6: benx.ai Style */
+        .d6-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        .d6-hero {
+            margin-bottom: 64px;
+        }
+
+        .d6-tagline {
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .d6-name {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .d6-traits {
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .d6-bio {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            max-width: 600px;
+        }
+
+        .d6-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .d6-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+        }
+
+        .d6-block-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        .d6-block h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .d6-block p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .d6-timeline {
+            margin-top: 16px;
+        }
+
+        .d6-timeline-item {
+            display: flex;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .d6-timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .d6-timeline-date {
+            color: var(--text-muted);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .d6-timeline-content {
+            font-size: 14px;
+        }
+
+        .d6-services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .d6-service-card {
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+        }
+
+        .d6-service-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .d6-service-card .price {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Direction Info Panel */
+        .direction-info {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            z-index: 1001;
+        }
+
+        .direction-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .direction-info p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .direction-info .features {
+            display: flex;
+            gap: 16px;
+        }
+
+        .direction-info .feature {
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .direction-info .feature::before {
+            content: "✓";
+            color: var(--success);
+        }
+
+        @media (max-width: 768px) {
+            .direction-tabs {
+                display: none;
+            }
+            .d2-grid {
+                grid-template-columns: 1fr;
+            }
+            .d4-container {
+                flex-direction: column;
+            }
+            .d4-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                top: 0;
+            }
+            .d5-sections {
+                grid-template-columns: 1fr;
+            }
+            .d6-grid {
+                grid-template-columns: 1fr;
+            }
+            .direction-info {
+                flex-direction: column;
+                text-align: center;
+                left: 16px;
+                right: 16px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-title">🎨 Design Directions Preview</div>
+        <div class="nav-controls">
+            <div class="direction-tabs">
+                <button class="direction-tab active" data-direction="1">1. 极简</button>
+                <button class="direction-tab" data-direction="2">2. 卡片</button>
+                <button class="direction-tab" data-direction="3">3. 叙事</button>
+                <button class="direction-tab" data-direction="4">4. 分割</button>
+                <button class="direction-tab" data-direction="5">5. 沉浸</button>
+                <button class="direction-tab" data-direction="6">6. benx</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <span id="themeIcon">🌙</span>
+                <span id="themeText">Dark</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Direction 1: Minimal Pure -->
+        <div class="direction-view active" id="direction-1">
+            <div class="d1-hero">
+                <p class="d1-greeting">👋 Hi, I'm</p>
+                <h1 class="d1-name">Leon</h1>
+                <p class="d1-title">全栈开发者 · AI4SE 转型专家</p>
+                <div class="d1-buttons">
+                    <button class="btn-primary">了解更多</button>
+                    <button class="btn-secondary">阅读博客</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Direction 2: Card Grid -->
+        <div class="direction-view" id="direction-2">
+            <div class="d2-container">
+                <div class="d2-header">
+                    <h1>Leon</h1>
+                    <p>从产品经理到全栈开发者，在AI时代寻找新的可能性</p>
+                </div>
+                <div class="d2-grid">
+                    <div class="d2-card">
+                        <div class="d2-card-icon">👤</div>
+                        <h3>关于我</h3>
+                        <p>我的故事和职业轨迹</p>
+                    </div>
+                    <div class="d2-card">
+                        <div class="d2-card-icon">💼</div>
+                        <h3>专业服务</h3>
+                        <p>产品设计咨询、AI编程课程</p>
+                    </div>
+                    <div class="d2-card">
+                        <div class="d2-card-icon">🚀</div>
+                        <h3>项目经历</h3>
+                        <p>WaytoAGI、飞书多维表格等</p>
+                    </div>
+                    <div class="d2-card">
+                        <div class="d2-card-icon">📝</div>
+                        <h3>博客文章</h3>
+                        <p>AI编程实战分享</p>
+                    </div>
+                    <div class="d2-card">
+                        <div class="d2-card-icon">📚</div>
+                        <h3>教程分享</h3>
+                        <p>零基础到实战的学习路径</p>
+                    </div>
+                    <div class="d2-card">
+                        <div class="d2-card-icon">💬</div>
+                        <h3>联系我</h3>
+                        <p>微信咨询、约咖啡聊天</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Direction 3: Single Column Narrative -->
+        <div class="direction-view" id="direction-3">
+            <div class="d3-container">
+                <div class="d3-section">
+                    <h1>从产品经理到全栈开发者<br>我在AI时代的转型之路</h1>
+                    <p>古典互联网产品经理，在 AI 时代寻找新的可能性。从策划 WaytoAGI 社区从 1-10 的增长，到在飞书主导 AI 功能的 10x 突破，始终在探索新的可能性。</p>
+                    <a href="#" class="d3-link">阅读我的故事 →</a>
+                </div>
+
+                <div class="d3-section">
+                    <h2>专业服务</h2>
+                    <p>基于多年产品经验和实际项目，为你提供靠谱的解决方案。产品设计咨询、Vibe Coding 零基础 AI 编程课。</p>
+                    <a href="#" class="d3-link">了解更多 →</a>
+                </div>
+
+                <div class="d3-section">
+                    <h2>最新文章</h2>
+                    <ul class="d3-articles">
+                        <li>
+                            <a href="#">炸裂！用真实案例告诉你 Claude Code 怎样帮我挣钱</a>
+                            <p class="date">2024-12-20</p>
+                        </li>
+                        <li>
+                            <a href="#">AI 编程 Hackathon 分享：两个小时做的网站，如何拿到 5000 美金特等奖</a>
+                            <p class="date">2024-12-15</p>
+                        </li>
+                        <li>
+                            <a href="#">从云端到低谷：我是如何抓住爆火 labubu 获得流量</a>
+                            <p class="date">2024-12-10</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Direction 4: Split Layout -->
+        <div class="direction-view" id="direction-4">
+            <div class="d4-container">
+                <aside class="d4-sidebar">
+                    <h1 class="d4-sidebar-name">Leon</h1>
+                    <p class="d4-sidebar-title">全栈开发者</p>
+                    <ul class="d4-nav">
+                        <li><a href="#" class="active">首页</a></li>
+                        <li><a href="#">关于</a></li>
+                        <li><a href="#">服务</a></li>
+                        <li><a href="#">项目</a></li>
+                        <li><a href="#">博客</a></li>
+                        <li><a href="#">联系</a></li>
+                    </ul>
+                    <div class="d4-social">
+                        <span class="d4-social-icon">微</span>
+                        <span class="d4-social-icon">X</span>
+                        <span class="d4-social-icon">即</span>
+                    </div>
+                </aside>
+                <main class="d4-main">
+                    <h2>最新文章</h2>
+                    <ul class="d4-post-list">
+                        <li class="d4-post-item">
+                            <h3 class="d4-post-title">炸裂！用真实案例告诉你 Claude Code 怎样帮我挣钱</h3>
+                            <p class="d4-post-excerpt">详细分享如何利用 AI 编程工具实现商业价值...</p>
+                            <p class="d4-post-meta">2024-12-20 · 阅读 8 分钟</p>
+                        </li>
+                        <li class="d4-post-item">
+                            <h3 class="d4-post-title">AI 编程 Hackathon 分享</h3>
+                            <p class="d4-post-excerpt">两个小时做的网站，如何拿到 5000 美金特等奖...</p>
+                            <p class="d4-post-meta">2024-12-15 · 阅读 6 分钟</p>
+                        </li>
+                        <li class="d4-post-item">
+                            <h3 class="d4-post-title">零基础 AI 编程分享：从上手到赚钱</h3>
+                            <p class="d4-post-excerpt">完整的学习路径和实战经验分享...</p>
+                            <p class="d4-post-meta">2024-12-10 · 阅读 10 分钟</p>
+                        </li>
+                    </ul>
+                    <div class="d4-tags">
+                        <span class="d4-tag">AI</span>
+                        <span class="d4-tag">Cursor</span>
+                        <span class="d4-tag">Next.js</span>
+                        <span class="d4-tag">Vibe Coding</span>
+                        <span class="d4-tag">产品设计</span>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Direction 5: Full-width Immersive -->
+        <div class="direction-view" id="direction-5">
+            <div class="d5-hero">
+                <h1>All in AI 出海</h1>
+                <p>从产品经理转全栈，边做边学，努力成为超级个体。Vibe coding 实践者。</p>
+                <div class="d5-hero-buttons">
+                    <button class="d5-btn-light">了解更多</button>
+                    <button class="d5-btn-outline">阅读博客</button>
+                </div>
+            </div>
+            <div class="d5-sections">
+                <div class="d5-section-card">
+                    <h3>关于我</h3>
+                    <p>我的故事和转型之路</p>
+                </div>
+                <div class="d5-section-card">
+                    <h3>专业服务</h3>
+                    <p>咨询与课程</p>
+                </div>
+                <div class="d5-section-card">
+                    <h3>项目经历</h3>
+                    <p>实践案例展示</p>
+                </div>
+                <div class="d5-section-card">
+                    <h3>博客</h3>
+                    <p>技术分享与思考</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Direction 6: benx.ai Style -->
+        <div class="direction-view" id="direction-6">
+            <div class="d6-container">
+                <div class="d6-hero">
+                    <p class="d6-tagline">All in AI 出海</p>
+                    <h1 class="d6-name">Leon</h1>
+                    <p class="d6-traits">好奇心 | INTP | FIRE</p>
+                    <p class="d6-bio">从产品经理转全栈，边做边学，努力成为超级个体。Vibe coding 实践者。</p>
+                    <button class="btn-primary">了解更多关于我</button>
+                </div>
+
+                <div class="d6-grid">
+                    <div class="d6-block">
+                        <p class="d6-block-title">关于我</p>
+                        <h3>我的故事</h3>
+                        <p>古典互联网产品经理，在 AI 时代寻找新的可能性。从策划 WaytoAGI 社区从 1-10 的增长，到在飞书主导 AI 功能的 10x 突破。</p>
+                    </div>
+                    <div class="d6-block">
+                        <p class="d6-block-title">职业轨迹</p>
+                        <div class="d6-timeline">
+                            <div class="d6-timeline-item">
+                                <span class="d6-timeline-date">现在</span>
+                                <span class="d6-timeline-content">All in AI 出海</span>
+                            </div>
+                            <div class="d6-timeline-item">
+                                <span class="d6-timeline-date">2023-2025</span>
+                                <span class="d6-timeline-content">飞书多维表格产品经理</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d6-block" style="margin-bottom: 24px;">
+                    <p class="d6-block-title">专业服务</p>
+                    <div class="d6-services">
+                        <div class="d6-service-card">
+                            <h4>产品设计咨询</h4>
+                            <p class="price">面议</p>
+                        </div>
+                        <div class="d6-service-card">
+                            <h4>Vibe Coding 课程</h4>
+                            <p class="price">免费 - 1999</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d6-grid">
+                    <div class="d6-block">
+                        <p class="d6-block-title">项目经历</p>
+                        <h3>WaytoAGI 社区</h3>
+                        <p>社区从1到10的增长实践，打造中文圈规模和影响力最大的 AI 社群。</p>
+                    </div>
+                    <div class="d6-block">
+                        <p class="d6-block-title">最新文章</p>
+                        <h3>AI 编程实战分享</h3>
+                        <p>从零基础到商业化开发者的完整学习路径。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Direction Info Panel -->
+    <div class="direction-info" id="directionInfo">
+        <div>
+            <h4 id="infoTitle">方向 1: 极简纯净</h4>
+            <p id="infoDesc">Apple官网风格，极致简洁，信息密度低</p>
+        </div>
+        <div class="features" id="infoFeatures">
+            <span class="feature">高端形象</span>
+            <span class="feature">大量留白</span>
+            <span class="feature">居中布局</span>
+        </div>
+    </div>
+
+    <script>
+        // Direction data
+        const directionData = {
+            1: {
+                title: "方向 1: 极简纯净",
+                desc: "Apple官网风格，极致简洁，信息密度低",
+                features: ["高端形象", "大量留白", "居中布局"]
+            },
+            2: {
+                title: "方向 2: 卡片矩阵",
+                desc: "模块化布局，结构清晰，快速导航",
+                features: ["模块化", "结构清晰", "快速浏览"]
+            },
+            3: {
+                title: "方向 3: 单列叙事",
+                desc: "垂直滚动叙事，故事线清晰，情感连接",
+                features: ["叙事感", "阅读友好", "情感连接"]
+            },
+            4: {
+                title: "方向 4: 左右分割",
+                desc: "固定侧边栏，右侧内容区，适合博客浏览",
+                features: ["博客优化", "导航便捷", "专注阅读"]
+            },
+            5: {
+                title: "方向 5: 全宽沉浸",
+                desc: "大尺寸Hero区，视觉冲击力强，品牌感",
+                features: ["视觉冲击", "品牌感", "首次印象"]
+            },
+            6: {
+                title: "方向 6: benx.ai 风格",
+                desc: "已验证的布局，信息丰富，快速实现",
+                features: ["已验证", "信息丰富", "快速实现"]
+            }
+        };
+
+        // Tab switching
+        document.querySelectorAll('.direction-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const direction = tab.dataset.direction;
+                
+                // Update tabs
+                document.querySelectorAll('.direction-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Update views
+                document.querySelectorAll('.direction-view').forEach(v => v.classList.remove('active'));
+                document.getElementById(`direction-${direction}`).classList.add('active');
+                
+                // Update info panel
+                const data = directionData[direction];
+                document.getElementById('infoTitle').textContent = data.title;
+                document.getElementById('infoDesc').textContent = data.desc;
+                document.getElementById('infoFeatures').innerHTML = data.features.map(f => 
+                    `<span class="feature">${f}</span>`
+                ).join('');
+            });
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            if (document.body.classList.contains('dark')) {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key >= '1' && e.key <= '6') {
+                const tab = document.querySelector(`[data-direction="${e.key}"]`);
+                if (tab) tab.click();
+            }
+            if (e.key === 'd' || e.key === 'D') {
+                themeToggle.click();
+            }
+        });
+    </script>
+</body>
+</html>
+
