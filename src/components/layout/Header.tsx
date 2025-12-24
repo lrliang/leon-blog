@@ -10,6 +10,7 @@ import {
   SheetTitle,
 } from '@/components/ui/sheet';
 import { ThemeToggle } from '@/components/layout/ThemeToggle';
+import { LanguageToggle } from '@/components/layout/LanguageToggle';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -43,7 +44,8 @@ export function Header() {
         </nav>
 
         {/* Actions */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
+          <LanguageToggle />
           <ThemeToggle />
 
           {/* Mobile Navigation */}
