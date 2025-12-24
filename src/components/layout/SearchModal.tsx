@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search, X, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -22,8 +22,8 @@ export function SearchModal() {
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  // 热门标签
-  const popularTags = getAllTags().slice(0, 5);
+  // 热门标签 - 使用 useMemo 避免重复计算
+  const popularTags = useMemo(() => getAllTags().slice(0, 5), []);
 
   // 打开/关闭 Modal
   const openModal = useCallback(() => {
@@ -92,8 +92,7 @@ export function SearchModal() {
             }))
           );
         } else {
-          // 开发模式：使用简单的客户端搜索
-          const allPosts = popularTags; // 暂时显示标签
+          // 开发模式：Pagefind 不可用，返回空结果
           setResults([]);
         }
       } catch (error) {
@@ -105,7 +104,7 @@ export function SearchModal() {
     }, 300);
 
     return () => clearTimeout(timeoutId);
-  }, [query, popularTags]);
+  }, [query]);
 
   // 键盘导航
   const handleKeyDown = (e: React.KeyboardEvent) => {

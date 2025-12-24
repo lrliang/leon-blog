@@ -18,6 +18,7 @@ const navLinks = [
   { href: '/', label: '首页' },
   { href: '/blog', label: '博客' },
   { href: '/tags', label: '标签' },
+  { href: '/resources', label: '推荐' },
 ];
 
 export function Header() {
