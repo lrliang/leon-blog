@@ -76,21 +76,26 @@ export function SearchModal() {
     const timeoutId = setTimeout(async () => {
       setIsLoading(true);
       try {
-        // 动态加载 Pagefind
+        // 动态加载 Pagefind（只在生产环境可用）
         // @ts-ignore
-        const pagefind = await import('/pagefind/pagefind.js');
-        await pagefind.init();
-        const search = await pagefind.search(query);
-        const resultsData = await Promise.all(
-          search.results.slice(0, 7).map((r: any) => r.data())
-        );
-        setResults(
-          resultsData.map((r: any) => ({
-            url: r.url,
-            title: r.meta?.title || 'Untitled',
-            excerpt: r.excerpt || '',
-          }))
-        );
+        if (typeof window !== 'undefined' && window.pagefind) {
+          // @ts-ignore
+          const search = await window.pagefind.search(query);
+          const resultsData = await Promise.all(
+            search.results.slice(0, 7).map((r: any) => r.data())
+          );
+          setResults(
+            resultsData.map((r: any) => ({
+              url: r.url.replace('.html', '').replace('/index', ''),
+              title: r.meta?.title || 'Untitled',
+              excerpt: r.excerpt || '',
+            }))
+          );
+        } else {
+          // 开发模式：使用简单的客户端搜索
+          const allPosts = popularTags; // 暂时显示标签
+          setResults([]);
+        }
       } catch (error) {
         console.error('Search error:', error);
         setResults([]);
@@ -100,7 +105,7 @@ export function SearchModal() {
     }, 300);
 
     return () => clearTimeout(timeoutId);
-  }, [query]);
+  }, [query, popularTags]);
 
   // 键盘导航
   const handleKeyDown = (e: React.KeyboardEvent) => {

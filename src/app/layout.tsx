@@ -39,6 +39,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    types: {
+      'application/rss+xml': '/rss.xml',
+    },
+  },
 };
 
 export default function RootLayout({
@@ -48,6 +53,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
+      <head>
+        {/* Pagefind 搜索脚本 - 仅生产环境 */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (async function() {
+                try {
+                  window.pagefind = await import('/pagefind/pagefind.js');
+                  await window.pagefind.init();
+                } catch (e) {
+                  console.log('Pagefind not available (dev mode)');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans antialiased`}
       >
