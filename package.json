@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
+    "postbuild": "pagefind --site .next/server/app --output-path public/pagefind",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
@@ -42,6 +43,7 @@
     "eslint": "^9",
     "eslint-config-next": "^16.0.0",
     "jsdom": "^27.3.0",
+    "pagefind": "^1.4.0",
     "postcss": "^8",
     "prettier": "^3.7.4",
     "prettier-plugin-tailwindcss": "^0.7.2",

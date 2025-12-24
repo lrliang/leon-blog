@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/sheet';
 import { ThemeToggle } from '@/components/layout/ThemeToggle';
 import { LanguageToggle } from '@/components/layout/LanguageToggle';
+import { SearchModal } from '@/components/layout/SearchModal';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -45,6 +46,7 @@ export function Header() {
 
         {/* Actions */}
         <div className="flex items-center gap-1">
+          <SearchModal />
           <LanguageToggle />
           <ThemeToggle />
 

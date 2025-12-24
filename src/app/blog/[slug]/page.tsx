@@ -8,6 +8,7 @@ import { AuthorCard } from '@/components/blog/article/AuthorCard';
 import { RelatedPosts } from '@/components/blog/article/RelatedPosts';
 import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 import { Callout } from '@/components/blog/article/Callout';
+import { ArticleJsonLd } from '@/components/seo/JsonLd';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -71,8 +72,11 @@ export default async function BlogPostPage({ params }: Props) {
   const relatedPosts = getRelatedPosts(slug, 3);
   const headings = extractHeadings(post.body);
 
+  const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://leon.blog';
+
   return (
     <>
+      <ArticleJsonLd post={post} url={`${BASE_URL}/blog/${slug}`} />
       <ReadingProgress />
 
       <article className="container px-4 py-12 md:px-8">
