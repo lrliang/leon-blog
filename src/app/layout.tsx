@@ -4,6 +4,8 @@ import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { LanguageProvider } from '@/components/providers/LanguageProvider';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { SkipLink } from '@/components/layout/SkipLink';
+import { ToastProvider } from '@/components/ui/toast';
 import './globals.css';
 
 const geistSans = Geist({
@@ -80,11 +82,16 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <LanguageProvider>
-            <div className="relative flex min-h-screen flex-col">
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
+            <ToastProvider>
+              <SkipLink />
+              <div className="relative flex min-h-screen flex-col">
+                <Header />
+                <main id="main-content" className="flex-1" tabIndex={-1}>
+                  {children}
+                </main>
+                <Footer />
+              </div>
+            </ToastProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>
