@@ -2,8 +2,8 @@
 stepsCompleted: [1, 2, 3, 4]
 status: complete
 completedAt: '2025-12-23'
-totalEpics: 7
-totalStories: 37
+totalEpics: 8
+totalStories: 39
 inputDocuments:
   - "_bmad-output/prd.md"
   - "_bmad-output/architecture.md"
@@ -1178,4 +1178,66 @@ So that **所有用户都能获得良好体验**.
 **Given** JavaScript禁用
 **When** 访问网站
 **Then** 文章内容可阅读，导航可点击
+
+---
+
+## Epic 8: Deployment & Go-Live
+
+将网站部署上线，配置自定义域名。
+
+### Story 8.1: Domain Selection
+
+As a **网站主人**,
+I want **选择并注册一个合适的域名**,
+So that **网站有专业的访问地址**.
+
+**Acceptance Criteria:**
+
+**Given** 需要选择域名
+**When** 评估域名选项
+**Then** 考虑以下因素：
+**And** 简短易记（推荐 6-12 字符）
+**And** 与个人品牌/定位相关
+**And** 选择合适的顶级域名（.com/.dev/.blog等）
+
+**推荐域名：**
+- `leon.blog` - 专业博客域名
+- `leonai.dev` - 开发者+AI定位
+- `leon.dev` - 极简开发者域名
+
+**购买渠道：**
+- Cloudflare Registrar（成本价）
+- Namecheap（首年优惠）
+- Vercel Domains（配置最简单）
+
+---
+
+### Story 8.2: Deploy to Vercel
+
+As a **网站主人**,
+I want **将网站部署到 Vercel**,
+So that **网站可以被全球访问**.
+
+**Acceptance Criteria:**
+
+**Given** 代码已推送到 GitHub
+**When** 连接 Vercel
+**Then** 自动识别 Next.js 项目
+**And** 构建成功并生成预览链接
+
+**Given** 域名已注册
+**When** 在 Vercel 配置域名
+**Then** 添加 DNS 记录后域名生效
+**And** 自动配置 HTTPS 证书
+
+**Given** 需要邮件订阅功能
+**When** 配置环境变量
+**Then** 添加 `RESEND_API_KEY` 环境变量
+
+**部署步骤：**
+1. 初始化 Git 仓库并推送到 GitHub
+2. 在 Vercel 导入项目
+3. 配置环境变量（如需要）
+4. 绑定自定义域名
+5. 验证所有功能正常
 
