@@ -33,7 +33,7 @@ export default async function TagPage({ params }: Props) {
   const posts = getPostsByTag(decodedTag);
 
   return (
-    <div className="container px-4 py-12 md:px-8">
+    <div className="container mx-auto px-4 py-12 md:px-8">
       {/* Back Link */}
       <Button variant="ghost" size="sm" asChild className="mb-6 -ml-2">
         <Link href="/tags">

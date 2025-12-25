@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: Props) {
       <ArticleJsonLd post={post} url={`${BASE_URL}/blog/${slug}`} />
       <ReadingProgress />
 
-      <article className="container px-4 py-12 md:px-8">
+      <article className="container mx-auto px-4 py-12 md:px-8">
         <div className="mx-auto max-w-4xl lg:grid lg:max-w-6xl lg:grid-cols-[1fr_200px] lg:gap-12">
           {/* Main Content */}
           <div className="min-w-0">

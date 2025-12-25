@@ -12,7 +12,7 @@ export default function BlogPage() {
   const featuredPosts = getFeaturedPosts();
 
   return (
-    <div className="container px-4 py-12 md:px-8">
+    <div className="container mx-auto px-4 py-12 md:px-8">
       {/* Featured Section */}
       {featuredPosts.length > 0 && (
         <section className="mb-16">

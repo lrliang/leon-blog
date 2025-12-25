@@ -14,7 +14,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border/40 bg-background">
-      <div className="container px-4 py-12 md:px-8">
+      <div className="container mx-auto px-4 py-12 md:px-8">
         {/* Subscribe Section */}
         <div className="mb-10 flex flex-col items-center text-center">
           <h3 className="mb-2 text-lg font-semibold">订阅更新</h3>
