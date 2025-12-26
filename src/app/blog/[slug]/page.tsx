@@ -10,6 +10,7 @@ import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 import { Callout } from '@/components/blog/article/Callout';
 import { ArticleJsonLd } from '@/components/seo/JsonLd';
 import { ShareButtons } from '@/components/blog/article/ShareButtons';
+import { MDXContent } from '@/components/blog/article/MDXContent';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -62,18 +63,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// 从 body 提取标题用于 TOC
-function extractHeadings(content: string) {
-  const headingRegex = /<h([23])[^>]*id="([^"]*)"[^>]*>([^<]*)<\/h[23]>/g;
+// 从编译后的 MDX 代码提取标题用于 TOC
+// Velite 编译后的 MDX 格式类似: e(i.h2,{children:"标题内容"})
+function extractHeadings(code: string) {
   const headings: { id: string; text: string; level: number }[] = [];
+
+  // 匹配 h2 和 h3 标题: e(i.h2,{children:"..."}) 或 l(e.h2,{children:"..."})
+  const headingRegex = /\.h([23]),\{children:"([^"]+)"\}/g;
   let match;
 
-  while ((match = headingRegex.exec(content)) !== null) {
-    headings.push({
-      level: parseInt(match[1]),
-      id: match[2],
-      text: match[3],
-    });
+  while ((match = headingRegex.exec(code)) !== null) {
+    const level = parseInt(match[1]);
+    const text = match[2];
+    const id = text.toLowerCase().replace(/\s+/g, '-');
+    headings.push({ level, text, id });
   }
 
   return headings;
@@ -109,10 +112,9 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* Article Body */}
             <ErrorBoundary>
-              <div
-                className="prose prose-neutral dark:prose-invert max-w-none"
-                dangerouslySetInnerHTML={{ __html: post.body }}
-              />
+              <div className="prose prose-neutral dark:prose-invert max-w-none">
+                <MDXContent code={post.body} />
+              </div>
             </ErrorBoundary>
 
             {/* Share Buttons */}
