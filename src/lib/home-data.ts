@@ -17,24 +17,29 @@ export interface SocialLink {
 
 export const timeline: TimelineItem[] = [
   {
-    year: '2024',
-    title: 'All in AI 出海',
-    description: '独立开发者，专注 AI 产品和海外市场',
+    year: '2025',
+    title: 'All in AI',
+    description: '独立开发者，企业 AI 转型咨询师，专注 AI 赋能人、组织、业务',
   },
   {
-    year: '2023',
+    year: '2023-2024',
     title: '开始 AI 探索',
-    description: '从 ChatGPT 到 Agent，系统学习 AI 产品开发',
+    description: '从 ChatGPT 到 Agent，系统学习 AI 重塑软件工程体系',
   },
   {
     year: '2020-2022',
-    title: '大厂产品经理',
-    description: '负责亿级用户产品，积累产品方法论',
+    title: '敏捷软件工程培训师 / 企业架构咨询师',
+    description: '帮助企业团队提升研发效能，设计技术架构落地方案',
+  },
+  {
+    year: '2020-2021',
+    title: '技术平台产品',
+    description: '负责技术平台产品规划与落地，打通研发工具链',
   },
   {
     year: '2018-2020',
-    title: '创业公司',
-    description: '从 0 到 1 搭建产品，快速迭代验证',
+    title: '全栈开发',
+    description: '从前端到后端，从架构到运维，夯实技术底层能力',
   },
 ];
 

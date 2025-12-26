@@ -68,9 +68,9 @@ export const content: Record<Language, HomeContent> = {
     about: {
       title: '关于我',
       story: [
-        '全栈工程师出身，从前端到后端，从架构到产品，从运维到管理，技术是我的底层能力。',
-        '现在专注 AI4SE 领域——用 AI 重塑软件工程的每个环节，10 倍提升研发效能。',
-        '正在成为技术商人：不只是写代码，更是用技术帮助他人解决商业问题，创造和捕获真正的价值。',
+        '全栈工程师出身，从前端到后端，从架构到运维，技术是我的底层能力。曾任敏捷软件工程培训师和企业架构咨询师，帮助团队提升研发效能。',
+        '2023 年开始 All in AI：从 ChatGPT 到 Agent，系统学习并实践 AI 重塑软件工程的方法论。',
+        '现在作为独立开发者和企业 AI 转型咨询师，专注用 AI 赋能人、组织和业务，帮助技术人和企业在 AI 时代创造真正的价值。',
       ],
       hobbies: {
         title: '生活中的我',
@@ -159,9 +159,9 @@ export const content: Record<Language, HomeContent> = {
     about: {
       title: 'About Me',
       story: [
-        'Full-stack engineer by trade—frontend, backend, architecture, and DevOps. Technology is my foundation.',
-        'Now focused on AI4SE—reshaping every phase of software engineering with AI, achieving 10x development efficiency.',
-        'Becoming a tech entrepreneur: not just writing code, but helping others solve business problems and capture real value through technology.',
+        'Full-stack engineer by trade—frontend, backend, architecture, and DevOps. Technology is my foundation. Former agile engineering trainer and enterprise architect consultant, helping teams boost development productivity.',
+        'Went all-in on AI in 2023: from ChatGPT to Agents, systematically learning and practicing AI-powered software engineering methodologies.',
+        'Now working as an indie developer and enterprise AI transformation consultant, focused on empowering people, organizations, and businesses with AI to create real value in the AI era.',
       ],
       hobbies: {
         title: 'Life Outside Work',
