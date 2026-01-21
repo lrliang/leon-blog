@@ -45,7 +45,8 @@ export interface HomeContent {
   contact: {
     title: string;
     description: string;
-    wechat: string;
+    wechatLabel: string;
+    wechatPublicLabel: string;
   };
   nav: {
     home: string;
@@ -138,7 +139,8 @@ export const content: Record<Language, HomeContent> = {
     contact: {
       title: '联系我',
       description: '欢迎合作与共建',
-      wechat: '微信：leon_ai',
+      wechatLabel: '微信',
+      wechatPublicLabel: '公众号',
     },
     nav: {
       home: '首页',
@@ -229,7 +231,8 @@ export const content: Record<Language, HomeContent> = {
     contact: {
       title: 'Contact',
       description: 'Open to collaboration and co-building',
-      wechat: 'WeChat: leon_ai',
+      wechatLabel: 'WeChat',
+      wechatPublicLabel: 'Official Account',
     },
     nav: {
       home: 'Home',

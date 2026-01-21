@@ -72,9 +72,10 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const contactInfo = {
-  wechatId: 'leon_ai',
-  wechatQrCode: '/images/wechat-qr.png', // 需要添加实际图片
-  email: 'hello@leon.blog',
+  wechatId: 'Leon_Lingrui',
+  wechatQrCode: '/images/wechat.png',
+  wechatPublicQrCode: '/images/gongzonghao.webp',
+  email: 'leon.lingrui@gmail.com',
 };
 
 // 服务流程步骤

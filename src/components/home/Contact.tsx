@@ -47,22 +47,35 @@ export function Contact() {
           variants={fadeInUp}
           className="grid gap-8 md:grid-cols-2"
         >
-          {/* WeChat QR Code */}
-          <div className="flex flex-col items-center rounded-2xl bg-background p-8">
-            <div className="relative mb-4 h-[180px] w-[180px] overflow-hidden rounded-xl bg-muted">
-              {/* Placeholder for QR code */}
-              <div className="flex h-full w-full items-center justify-center text-muted-foreground">
-                <span className="text-4xl">📱</span>
+          {/* WeChat QR Codes */}
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-col items-center rounded-2xl bg-background p-8">
+              <div className="relative mb-4 h-[180px] w-[180px] overflow-hidden rounded-xl bg-muted">
+                <Image
+                  src={contactInfo.wechatQrCode}
+                  alt={`${t.contact.wechatLabel}二维码`}
+                  fill
+                  sizes="180px"
+                  className="object-cover"
+                />
               </div>
-              {/* Uncomment when QR code is available */}
-              {/* <Image
-                src={contactInfo.wechatQrCode}
-                alt="微信二维码"
-                fill
-                className="object-cover"
-              /> */}
+              <p className="font-medium">
+                {t.contact.wechatLabel}：{contactInfo.wechatId}
+              </p>
             </div>
-            <p className="font-medium">{t.contact.wechat}</p>
+
+            <div className="flex flex-col items-center rounded-2xl bg-background p-8">
+              <div className="relative mb-4 h-[180px] w-[180px] overflow-hidden rounded-xl bg-muted">
+                <Image
+                  src={contactInfo.wechatPublicQrCode}
+                  alt={`${t.contact.wechatPublicLabel}二维码`}
+                  fill
+                  sizes="180px"
+                  className="object-cover"
+                />
+              </div>
+              <p className="font-medium">{t.contact.wechatPublicLabel}</p>
+            </div>
           </div>
 
           {/* Social Links */}
