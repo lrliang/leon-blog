@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import Link from 'next/link';
@@ -22,6 +23,10 @@ const staggerContainer = {
 
 export function Projects() {
   const { t } = useLanguage();
+  const [expanded, setExpanded] = useState(false);
+  const initialCount = 6;
+  const projects = expanded ? t.projects.items : t.projects.items.slice(0, initialCount);
+  const hasMore = t.projects.items.length > initialCount;
 
   return (
     <section id="projects" className="px-4 py-24 md:px-8">
@@ -43,7 +48,7 @@ export function Projects() {
           variants={staggerContainer}
           className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
-          {t.projects.items.map((project, index) => (
+          {projects.map((project, index) => (
             <motion.div
               key={index}
               variants={fadeInUp}
@@ -96,6 +101,18 @@ export function Projects() {
             </motion.div>
           ))}
         </motion.div>
+
+        {hasMore && (
+          <div className="mt-10 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setExpanded((prev) => !prev)}
+              className="rounded-full border border-border px-5 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary/50 hover:text-primary"
+            >
+              {expanded ? t.projects.ctaLess : t.projects.ctaMore}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -33,6 +33,8 @@ export interface HomeContent {
   };
   projects: {
     title: string;
+    ctaMore: string;
+    ctaLess: string;
     items: {
       title: string;
       description: string;
@@ -109,6 +111,8 @@ export const content: Record<Language, HomeContent> = {
     },
     projects: {
       title: '项目经历',
+      ctaMore: '查看更多项目',
+      ctaLess: '收起项目',
       items: [
         {
           title: '资产管理软件（Rust）',
@@ -274,6 +278,8 @@ export const content: Record<Language, HomeContent> = {
     },
     projects: {
       title: 'Projects',
+      ctaMore: 'Show more projects',
+      ctaLess: 'Show fewer projects',
       items: [
         {
           title: 'Asset Management System (Rust)',
