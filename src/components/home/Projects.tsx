@@ -42,15 +42,15 @@ export function Projects() {
         </motion.h2>
 
         <motion.div
+          key={expanded ? 'expanded' : 'collapsed'}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-100px' }}
+          animate="show"
           variants={staggerContainer}
           className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
           {projects.map((project, index) => (
             <motion.div
-              key={index}
+              key={`${index}-${project.title}`}
               variants={fadeInUp}
               className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/50"
             >
