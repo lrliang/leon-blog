@@ -120,6 +120,60 @@ export const content: Record<Language, HomeContent> = {
           url: 'https://github.com/lrliang/asset-light',
         },
         {
+          title: '算法自动化效率测试',
+          description:
+            '面向算法团队单分支开发，搭建自动化效率通知系统：定时拉取效率平台数据并分析，覆盖多项目数据采集与统计，自动识别项目并通过飞书推送；配套 PostgreSQL + Metabase 数据看板与分层服务架构。',
+          result: '减少人工统计与回归成本，保障算法效率指标持续达标',
+          period: '2024-2025',
+          tags: ['Node.js', 'PostgreSQL', '数据分析', '飞书'],
+          url: 'https://git.hairoutech.com/haialgo/auto-efficiency-notifier',
+        },
+        {
+          title: 'AI 驱动团队代码 Review',
+          description:
+            '基于 GitLab + 飞书构建 AI 代码审查助手，自动分析 MR 变更、识别代码坏味道与潜在风险，支持可配置规则与策略，实现标准化审查流程。',
+          result: '审查时间由 60 分钟降至 12 分钟，质量评分提升 35%，通知响应缩短至 2 分钟内',
+          period: '2024-2025',
+          tags: ['AI', 'GitLab', 'Code Review', '自动化'],
+          url: 'https://git.hairoutech.com/haialgo/ai-mr-revirewer',
+        },
+        {
+          title: '算法模块架构重构',
+          description:
+            '面向遗留核心算法模块，重构为入口层/核心服务层/模型层/工具层四层架构，引入场景化语义与生命周期管理，业务与日志解耦。',
+          result: '问题定位提速、回归成本下降，新人上手从 2 周缩短至 3 天',
+          period: '2024-2025',
+          tags: ['架构重构', '算法', 'Java'],
+          url: '#',
+        },
+        {
+          title: 'Napoleon-EagleEye 故障问答系统（RAG）',
+          description:
+            '基于历史工单与知识库构建 RAG 智能问答，支持相似工单检索、定时同步、对话式交互与反馈闭环。',
+          result: '故障排查效率提升，知识沉淀与复用体系化',
+          period: '2024-2025',
+          tags: ['RAG', 'LLM', '故障诊断'],
+          url: '#',
+        },
+        {
+          title: '系统效率自动诊断（EAI）',
+          description:
+            '构建 L0 日志结构化生成器 + EAI 网页分析工具 + AI 诊断报告，自动生成指标、可视化与优化建议。',
+          result: '日志分析从 2-3 天降至 0.5 天，整体效率提升约 5 倍',
+          period: '2024-2025',
+          tags: ['数据分析', 'AI', '效率诊断'],
+          url: '#',
+        },
+        {
+          title: 'AI 测试用例生成 Agent',
+          description:
+            '输入场景描述自动分解并生成 Gherkin/Cucumber 用例，维护标准化 Step 库并接入 CI/CD。',
+          result: '用例编写降至 0.5 天，覆盖率提升至 95%',
+          period: '2024-2025',
+          tags: ['测试自动化', 'Cucumber', 'AI'],
+          url: '#',
+        },
+        {
           title: 'AI 驱动个人博客',
           description: '搭建 AI 赋能的内容生产与知识管理体系。',
           result: '写作与发布效率提升',
@@ -211,6 +265,60 @@ export const content: Record<Language, HomeContent> = {
           period: '2025-2026',
           tags: ['Rust', 'Asset Management', 'Taxonomy'],
           url: 'https://github.com/lrliang/asset-light',
+        },
+        {
+          title: 'Algorithm Automation Efficiency Testing',
+          description:
+            'Built an automated efficiency notification system for single-branch algorithm development: scheduled pipelines collect platform data, analyze multi-project metrics, and route results to Feishu; backed by PostgreSQL + Metabase dashboards and a layered service architecture.',
+          result: 'Reduced manual reporting and regression effort while keeping efficiency KPIs compliant',
+          period: '2024-2025',
+          tags: ['Node.js', 'PostgreSQL', 'Analytics', 'Feishu'],
+          url: 'https://git.hairoutech.com/haialgo/auto-efficiency-notifier',
+        },
+        {
+          title: 'AI-Driven Team Code Review',
+          description:
+            'Integrated GitLab and Feishu to deliver an AI code review assistant that analyzes MR diffs, flags code smells and risks, and supports configurable review rules for consistent quality.',
+          result: 'Review time cut from 60 minutes to 12, quality score +35%, notifications within 2 minutes',
+          period: '2024-2025',
+          tags: ['AI', 'GitLab', 'Code Review', 'Automation'],
+          url: 'https://git.hairoutech.com/haialgo/ai-mr-revirewer',
+        },
+        {
+          title: 'Algorithm Module Architecture Refactor',
+          description:
+            'Refactored a legacy core algorithm module into entry/core service/model/tool layers, introduced scenario-driven semantics and lifecycle management, and decoupled business logic from logging.',
+          result: 'Faster issue diagnosis, lower regression cost, and onboarding cut from 2 weeks to 3 days',
+          period: '2024-2025',
+          tags: ['Architecture', 'Algorithms', 'Java'],
+          url: '#',
+        },
+        {
+          title: 'Napoleon-EagleEye Fault QA System (RAG)',
+          description:
+            'Built a RAG-based fault QA system on historical tickets and knowledge base with similar-case retrieval, scheduled sync, chat UI, and feedback loop.',
+          result: 'Faster troubleshooting with systematized knowledge reuse',
+          period: '2024-2025',
+          tags: ['RAG', 'LLM', 'Diagnostics'],
+          url: '#',
+        },
+        {
+          title: 'Efficiency Auto-Inspector (EAI)',
+          description:
+            'Delivered L0 log structuring, an EAI web analyzer, and AI diagnostic reports to auto-generate metrics, visualizations, and optimization suggestions.',
+          result: 'Log analysis cut from 2–3 days to 0.5 day, ~5× efficiency gain',
+          period: '2024-2025',
+          tags: ['Analytics', 'AI', 'Efficiency'],
+          url: '#',
+        },
+        {
+          title: 'AI Test Case Generation Agent',
+          description:
+            'Auto-generated Gherkin/Cucumber test cases from scenario descriptions, maintained a standardized Step library, and integrated into CI/CD.',
+          result: 'Test authoring down to 0.5 day and coverage up to 95%',
+          period: '2024-2025',
+          tags: ['Test Automation', 'Cucumber', 'AI'],
+          url: '#',
         },
         {
           title: 'AI-Powered Personal Blog',
