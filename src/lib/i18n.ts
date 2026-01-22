@@ -174,10 +174,28 @@ export const content: Record<Language, HomeContent> = {
           url: '#',
         },
         {
+          title: '经费管理平台',
+          description:
+            '重塑团建经费管理流程，预算导入与自动分摊、费用记录、报销闭环、可视化查询，替代 Excel 手工维护。',
+          result: '自动化程度提升 90%，报销效率提升 70%，数据实时可见',
+          period: '2024-2025',
+          tags: ['B端产品', '数字化转型', '预算管理', '自动化'],
+          url: '#',
+        },
+        {
+          title: 'AI4SE 全流程实践',
+          description:
+            '以 AI 驱动需求、架构、代码、测试、部署全流程，2 人业余 4 周交付核心功能。',
+          result: '开发周期从 38 周降至 4 周，成本接近 0',
+          period: '2024-2025',
+          tags: ['AI4SE', '全流程', '效率提升'],
+          url: '#',
+        },
+        {
           title: 'AI 驱动个人博客',
           description: '搭建 AI 赋能的内容生产与知识管理体系。',
-          result: '写作与发布效率提升',
-          period: '2024',
+          result: '写作质量与发布效率提升，形成可治理的 AI 内容生产流程',
+          period: '2024-2025',
           tags: ['AI', '内容', '知识管理'],
           url: '#',
         },
@@ -321,10 +339,28 @@ export const content: Record<Language, HomeContent> = {
           url: '#',
         },
         {
+          title: 'Expense Management Platform',
+          description:
+            'Rebuilt the team expense workflow with budget import and auto allocation, expense tracking, reimbursement loop, and visual analytics, replacing Excel-heavy manual ops.',
+          result: '90% automation and 70% faster reimbursements with real-time visibility',
+          period: '2024-2025',
+          tags: ['B2B', 'Digital Transformation', 'Budgeting', 'Automation'],
+          url: '#',
+        },
+        {
+          title: 'AI4SE Full-Flow Practice',
+          description:
+            'Applied AI to requirements, architecture, coding, testing, and deployment; two-person, part-time delivery in 4 weeks.',
+          result: 'Cycle reduced from 38 weeks to 4 with near-zero cost',
+          period: '2024-2025',
+          tags: ['AI4SE', 'Full-Flow', 'Productivity'],
+          url: '#',
+        },
+        {
           title: 'AI-Powered Personal Blog',
           description: 'Designed an AI-assisted content production and knowledge management workflow.',
-          result: 'Faster writing and publishing',
-          period: '2024',
+          result: 'Improved writing quality and publishing efficiency, established a governance-ready AI content production process',
+          period: '2024-Present',
           tags: ['AI', 'Content', 'Knowledge'],
           url: '#',
         },
