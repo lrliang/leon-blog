@@ -94,7 +94,7 @@ export function Projects() {
                   }
                   className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
                 >
-                  查看项目
+                  {t.projects.viewProject}
                   <ExternalLink className="h-3 w-3" />
                 </Link>
               )}

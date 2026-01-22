@@ -35,6 +35,7 @@ export interface HomeContent {
     title: string;
     ctaMore: string;
     ctaLess: string;
+    viewProject: string;
     items: {
       title: string;
       description: string;
@@ -115,6 +116,7 @@ export const content: Record<Language, HomeContent> = {
       title: '项目经历',
       ctaMore: '查看更多项目',
       ctaLess: '收起项目',
+      viewProject: '查看项目',
       items: [
         {
           title: '资产管理软件（Rust）',
@@ -284,6 +286,7 @@ export const content: Record<Language, HomeContent> = {
       title: 'Projects',
       ctaMore: 'Show more projects',
       ctaLess: 'Show fewer projects',
+      viewProject: 'View Project',
       items: [
         {
           title: 'Asset Management System (Rust)',
