@@ -112,11 +112,12 @@ export const content: Record<Language, HomeContent> = {
       items: [
         {
           title: '资产管理软件（Rust）',
-          description: '为个人与组织构建资产管理系统，覆盖数据建模、权限管理与报表分析。',
-          result: '关键业务流程自动化',
-          period: '2023-2024',
-          tags: ['Rust', '资产管理', '工程化'],
-          url: '#',
+          description:
+            '基于行业最佳实践构建以风险暴露为主轴的资产分类体系，叠加 Scope/工具类型/策略分层等正交维度，并实现字典化版本管理与强约束录入；支持资产记录、盘点、配置偏离监控与再平衡建议。',
+          result: '形成可治理的资产体检流程，输出配置建议并识别资产优劣性',
+          period: '2025-2026',
+          tags: ['Rust', '资产管理', '分类体系'],
+          url: 'https://github.com/lrliang/asset-light',
         },
         {
           title: 'AI 驱动个人博客',
@@ -204,11 +205,12 @@ export const content: Record<Language, HomeContent> = {
       items: [
         {
           title: 'Asset Management System (Rust)',
-          description: 'Built an asset management system with data modeling, access control, and reporting.',
-          result: 'Automated key operational workflows',
-          period: '2023-2024',
-          tags: ['Rust', 'Asset Management', 'Engineering'],
-          url: '#',
+          description:
+            'Built a best-practice, risk-exposure-led asset taxonomy with orthogonal dimensions (scope, vehicle type, strategy layer), dictionary versioning, and constrained inputs; enabled personal asset recording, inventory, allocation drift checks, and rebalancing guidance.',
+          result: 'Delivered portfolio health checks with allocation advice and asset quality insights',
+          period: '2025-2026',
+          tags: ['Rust', 'Asset Management', 'Taxonomy'],
+          url: 'https://github.com/lrliang/asset-light',
         },
         {
           title: 'AI-Powered Personal Blog',
