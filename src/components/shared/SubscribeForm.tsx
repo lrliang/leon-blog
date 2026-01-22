@@ -3,8 +3,10 @@
 import { useState } from 'react';
 import { Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/components/providers/LanguageProvider';
 
 export function SubscribeForm() {
+  const { t } = useLanguage();
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
@@ -35,7 +37,7 @@ export function SubscribeForm() {
       }
     } catch {
       setStatus('error');
-      setMessage('订阅失败，请稍后重试');
+      setMessage(t.subscribe.errorRetry);
     }
   };
 
@@ -52,7 +54,7 @@ export function SubscribeForm() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="输入邮箱订阅更新"
+            placeholder={t.subscribe.placeholder}
             className="flex-1 rounded-lg border border-border bg-background px-4 py-2 text-sm outline-none focus:border-primary"
             disabled={status === 'loading'}
           />
@@ -60,7 +62,7 @@ export function SubscribeForm() {
             {status === 'loading' ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
-              '订阅'
+              t.subscribe.button
             )}
           </Button>
         </form>

@@ -59,6 +59,14 @@ export interface HomeContent {
     openMenu: string;
     menu: string;
   };
+  subscribe: {
+    title: string;
+    description: string;
+    placeholder: string;
+    button: string;
+    rss: string;
+    errorRetry: string;
+  };
 }
 
 export const content: Record<Language, HomeContent> = {
@@ -231,6 +239,14 @@ export const content: Record<Language, HomeContent> = {
       openMenu: '打开菜单',
       menu: '导航菜单',
     },
+    subscribe: {
+      title: '订阅更新',
+      description: '获取最新文章和 AI 出海资讯',
+      placeholder: '输入邮箱订阅更新',
+      button: '订阅',
+      rss: 'RSS 订阅',
+      errorRetry: '订阅失败，请稍后重试',
+    },
   },
   en: {
     hero: {
@@ -400,6 +416,14 @@ export const content: Record<Language, HomeContent> = {
       resources: 'Resources',
       openMenu: 'Open menu',
       menu: 'Navigation menu',
+    },
+    subscribe: {
+      title: 'Subscribe',
+      description: 'Get the latest articles and AI insights',
+      placeholder: 'Enter your email',
+      button: 'Subscribe',
+      rss: 'RSS Feed',
+      errorRetry: 'Subscription failed, please try again',
     },
   },
 };

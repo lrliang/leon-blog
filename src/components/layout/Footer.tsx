@@ -1,6 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import { Rss } from 'lucide-react';
 import { SubscribeForm } from '@/components/shared/SubscribeForm';
+import { useLanguage } from '@/components/providers/LanguageProvider';
 
 const socialLinks = [
   { href: '#', label: '小红书' },
@@ -10,6 +13,7 @@ const socialLinks = [
 ];
 
 export function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -17,9 +21,9 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12 md:px-8">
         {/* Subscribe Section */}
         <div className="mb-10 flex flex-col items-center text-center">
-          <h3 className="mb-2 text-lg font-semibold">订阅更新</h3>
+          <h3 className="mb-2 text-lg font-semibold">{t.subscribe.title}</h3>
           <p className="mb-4 text-sm text-muted-foreground">
-            获取最新文章和 AI 出海资讯
+            {t.subscribe.description}
           </p>
           <SubscribeForm />
           <Link
@@ -27,7 +31,7 @@ export function Footer() {
             className="mt-3 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
           >
             <Rss className="h-4 w-4" />
-            RSS 订阅
+            {t.subscribe.rss}
           </Link>
         </div>
 
