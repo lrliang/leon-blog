@@ -6,7 +6,9 @@
 export interface TimelineItem {
   year: string;
   title: string;
+  titleEn: string;
   description: string;
+  descriptionEn: string;
 }
 
 export interface SocialLink {
@@ -19,27 +21,42 @@ export const timeline: TimelineItem[] = [
   {
     year: '2025',
     title: 'All in AI',
+    titleEn: 'All in AI',
     description: '独立开发者，企业 AI 转型咨询师，专注 AI 赋能人、组织、业务',
+    descriptionEn:
+      'Independent developer and enterprise AI transformation consultant, focused on empowering people, organizations, and businesses with AI',
   },
   {
     year: '2023-2024',
     title: '开始 AI 探索',
+    titleEn: 'Started AI Exploration',
     description: '从 ChatGPT 到 Agent，系统学习 AI 重塑软件工程体系',
+    descriptionEn:
+      'From ChatGPT to Agents, systematically studying how AI reshapes software engineering',
   },
   {
     year: '2020-2022',
     title: '敏捷软件工程培训师 / 企业架构咨询师',
+    titleEn: 'Agile Software Engineering Trainer / Enterprise Architecture Consultant',
     description: '帮助企业团队提升研发效能，设计技术架构落地方案',
+    descriptionEn:
+      'Helped enterprise teams improve R&D efficiency and deliver technical architecture solutions',
   },
   {
     year: '2020-2021',
     title: '技术平台产品',
+    titleEn: 'Technical Platform Product',
     description: '负责技术平台产品规划与落地，打通研发工具链',
+    descriptionEn:
+      'Led planning and delivery of internal tech platform products, connecting the R&D toolchain',
   },
   {
     year: '2018-2020',
     title: '全栈开发',
+    titleEn: 'Full-Stack Development',
     description: '从前端到后端，从架构到运维，夯实技术底层能力',
+    descriptionEn:
+      'Built solid technical foundations across frontend, backend, architecture, and operations',
   },
 ];
 
