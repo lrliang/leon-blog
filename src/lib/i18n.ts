@@ -55,6 +55,8 @@ export interface HomeContent {
     blog: string;
     tags: string;
     resources: string;
+    openMenu: string;
+    menu: string;
   };
 }
 
@@ -224,6 +226,8 @@ export const content: Record<Language, HomeContent> = {
       blog: '博客',
       tags: '标签',
       resources: '推荐',
+      openMenu: '打开菜单',
+      menu: '导航菜单',
     },
   },
   en: {
@@ -391,6 +395,8 @@ export const content: Record<Language, HomeContent> = {
       blog: 'Blog',
       tags: 'Tags',
       resources: 'Resources',
+      openMenu: 'Open menu',
+      menu: 'Navigation menu',
     },
   },
 };

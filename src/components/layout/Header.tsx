@@ -12,16 +12,18 @@ import {
 import { ThemeToggle } from '@/components/layout/ThemeToggle';
 import { LanguageToggle } from '@/components/layout/LanguageToggle';
 import { SearchModal } from '@/components/layout/SearchModal';
+import { useLanguage } from '@/components/providers/LanguageProvider';
 import { cn } from '@/lib/utils';
 
-const navLinks = [
-  { href: '/', label: '首页' },
-  { href: '/blog', label: '博客' },
-  { href: '/tags', label: '标签' },
-  { href: '/resources', label: '推荐' },
-];
-
 export function Header() {
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { href: '/', label: t.nav.home },
+    { href: '/blog', label: t.nav.blog },
+    { href: '/tags', label: t.nav.tags },
+    { href: '/resources', label: t.nav.resources },
+  ];
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-14 max-w-screen-2xl items-center justify-between px-4 md:px-8">
@@ -56,11 +58,11 @@ export function Header() {
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon">
                 <Menu className="h-5 w-5" />
-                <span className="sr-only">打开菜单</span>
+                <span className="sr-only">{t.nav.openMenu}</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <SheetTitle className="sr-only">导航菜单</SheetTitle>
+              <SheetTitle className="sr-only">{t.nav.menu}</SheetTitle>
               <nav className="mt-8 flex flex-col gap-4">
                 {navLinks.map((link) => (
                   <Link
