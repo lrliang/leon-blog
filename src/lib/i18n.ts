@@ -71,7 +71,7 @@ export const content: Record<Language, HomeContent> = {
       story: [
         '资深全栈工程师，具备 toC 培训与 toB 数字化转型咨询经验，长期以技术解决真实问题。',
         'AI 时代以来，我用各类技术栈开发企业与个人软件，搭建 AI 驱动的个人博客，帮助企业改善经营，并完成企业应用的架构、设计与研发。',
-        '我的愿景是推动技术平权与知识平权，通过服务沉淀与开源社区连接更多人，帮助父母教育、企业经营、组织运作、产品/方案研发、文化创作、农业等场景适应 AI 原生世界。',
+        '我的愿景是推动技术平权与知识平权，通过服务沉淀与开源社区连接更多人，支持泛知识与能力教育（情感、历史、政治、家庭、学业、职场等），并帮助企业经营、组织运作、产品/方案研发、文化创作、农业等场景适应 AI 原生世界。',
       ],
       hobbies: {
         title: '生活中的我',
@@ -163,7 +163,7 @@ export const content: Record<Language, HomeContent> = {
       story: [
         'Senior full-stack engineer with extensive toC training and toB digital transformation consulting experience, focused on solving real problems with technology.',
         'In the AI era, built an asset management system in Rust, an AI-powered personal blog, helped improve business operations, and led enterprise app architecture, design, and delivery.',
-        'My mission is to advance tech and knowledge equity through services and open communities, helping parents’ education, business operations, organizational effectiveness, product/solution R&D, cultural creation, agriculture, and more adapt to an AI-native world.',
+        'My mission is to advance tech and knowledge equity through services and open communities, supporting broad knowledge and capability education (emotional, historical, political, family, academic, and workplace topics), and helping business operations, organizational effectiveness, product/solution R&D, cultural creation, agriculture, and more adapt to an AI-native world.',
       ],
       hobbies: {
         title: 'Life Outside Work',
