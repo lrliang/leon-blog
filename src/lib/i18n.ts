@@ -136,12 +136,30 @@ export const content: Record<Language, HomeContent> = {
           url: 'https://github.com/lrliang/asset-light',
         },
         {
+          title: '自动化效率分析平台',
+          description:
+            '搭建自动化效率通知系统，定时采集分析多项目数据，配套数据看板与分层服务架构。',
+          result: '减少人工统计成本，保障效率指标持续达标',
+          period: '2024-2025',
+          tags: ['Node.js', 'PostgreSQL', '数据分析'],
+          url: '#',
+        },
+        {
           title: 'AI 代码审查助手',
           description:
             '基于 GitLab 构建 AI 代码审查工具，自动分析变更、识别代码问题与潜在风险，支持可配置规则。',
           result: '审查时间降低 80%，代码质量提升 35%',
           period: '2024-2025',
           tags: ['AI', 'GitLab', 'Code Review'],
+          url: '#',
+        },
+        {
+          title: '核心模块架构重构',
+          description:
+            '将遗留模块重构为分层架构，引入场景化语义与生命周期管理。',
+          result: '问题定位提速，新人上手时间缩短 80%',
+          period: '2024-2025',
+          tags: ['架构', 'Java', '重构'],
           url: '#',
         },
         {
@@ -154,12 +172,39 @@ export const content: Record<Language, HomeContent> = {
           url: '#',
         },
         {
-          title: '核心模块架构重构',
+          title: '系统效率自动诊断',
           description:
-            '将遗留模块重构为分层架构，引入场景化语义与生命周期管理。',
-          result: '问题定位提速，新人上手时间缩短 80%',
+            '构建日志结构化工具与 AI 诊断报告，自动生成指标、可视化与优化建议。',
+          result: '日志分析效率提升约 5 倍',
           period: '2024-2025',
-          tags: ['架构', 'Java', '重构'],
+          tags: ['数据分析', 'AI', '效率诊断'],
+          url: '#',
+        },
+        {
+          title: 'AI 测试用例生成',
+          description:
+            '输入场景描述自动生成 Gherkin/Cucumber 用例，维护标准化 Step 库并接入 CI/CD。',
+          result: '用例编写效率大幅提升，覆盖率达 95%',
+          period: '2024-2025',
+          tags: ['测试自动化', 'Cucumber', 'AI'],
+          url: '#',
+        },
+        {
+          title: '团队经费管理平台',
+          description:
+            '重塑经费管理流程，支持预算导入、费用记录、报销闭环与可视化查询。',
+          result: '自动化程度提升 90%，报销效率提升 70%',
+          period: '2024-2025',
+          tags: ['B端产品', '数字化转型', '自动化'],
+          url: '#',
+        },
+        {
+          title: 'AI4SE 全流程实践',
+          description:
+            '以 AI 驱动需求、架构、代码、测试、部署全流程，小团队快速交付核心功能。',
+          result: '开发周期大幅缩短，成本显著降低',
+          period: '2024-2025',
+          tags: ['AI4SE', '全流程', '效率提升'],
           url: '#',
         },
         {
@@ -269,12 +314,30 @@ export const content: Record<Language, HomeContent> = {
           url: 'https://github.com/lrliang/asset-light',
         },
         {
+          title: 'Automated Efficiency Analytics Platform',
+          description:
+            'Built automated efficiency notification system with scheduled data collection, multi-project analytics, and layered service architecture.',
+          result: 'Reduced manual reporting effort, kept efficiency KPIs on track',
+          period: '2024-2025',
+          tags: ['Node.js', 'PostgreSQL', 'Analytics'],
+          url: '#',
+        },
+        {
           title: 'AI Code Review Assistant',
           description:
             'Built an AI-powered code review tool on GitLab that analyzes diffs, flags code smells and risks, with configurable rules.',
           result: 'Review time reduced by 80%, code quality improved by 35%',
           period: '2024-2025',
           tags: ['AI', 'GitLab', 'Code Review'],
+          url: '#',
+        },
+        {
+          title: 'Core Module Architecture Refactor',
+          description:
+            'Refactored legacy module into layered architecture with scenario-driven semantics and lifecycle management.',
+          result: 'Faster issue diagnosis, onboarding time reduced by 80%',
+          period: '2024-2025',
+          tags: ['Architecture', 'Java', 'Refactoring'],
           url: '#',
         },
         {
@@ -287,12 +350,39 @@ export const content: Record<Language, HomeContent> = {
           url: '#',
         },
         {
-          title: 'Core Module Architecture Refactor',
+          title: 'Efficiency Auto-Diagnostics',
           description:
-            'Refactored legacy module into layered architecture with scenario-driven semantics and lifecycle management.',
-          result: 'Faster issue diagnosis, onboarding time reduced by 80%',
+            'Built log structuring tools and AI diagnostic reports for auto-generating metrics, visualizations, and optimization suggestions.',
+          result: 'Log analysis efficiency improved ~5x',
           period: '2024-2025',
-          tags: ['Architecture', 'Java', 'Refactoring'],
+          tags: ['Analytics', 'AI', 'Efficiency'],
+          url: '#',
+        },
+        {
+          title: 'AI Test Case Generation',
+          description:
+            'Auto-generated Gherkin/Cucumber test cases from scenario descriptions, maintained a standardized Step library, integrated into CI/CD.',
+          result: 'Test authoring efficiency improved significantly, coverage reached 95%',
+          period: '2024-2025',
+          tags: ['Test Automation', 'Cucumber', 'AI'],
+          url: '#',
+        },
+        {
+          title: 'Team Expense Management Platform',
+          description:
+            'Rebuilt expense management workflow with budget import, expense tracking, reimbursement loop, and visual analytics.',
+          result: '90% automation, 70% faster reimbursements',
+          period: '2024-2025',
+          tags: ['B2B', 'Digital Transformation', 'Automation'],
+          url: '#',
+        },
+        {
+          title: 'AI4SE Full-Flow Practice',
+          description:
+            'Applied AI to requirements, architecture, coding, testing, and deployment for rapid small-team delivery.',
+          result: 'Development cycle significantly shortened, costs greatly reduced',
+          period: '2024-2025',
+          tags: ['AI4SE', 'Full-Flow', 'Productivity'],
           url: '#',
         },
         {
