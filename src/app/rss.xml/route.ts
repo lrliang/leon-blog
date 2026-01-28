@@ -8,7 +8,7 @@ export async function GET() {
 
   const feed = new Feed({
     title: 'Leon Blog',
-    description: 'All in AI 出海 - 从产品经理转全栈，边做边学，努力成为超级个体',
+    description: '资深全栈工程师 · AI 原生实践者 · 用 AI 推动技术与知识平权',
     id: BASE_URL,
     link: BASE_URL,
     language: 'zh-CN',

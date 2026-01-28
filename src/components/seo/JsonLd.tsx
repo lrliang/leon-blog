@@ -42,14 +42,14 @@ export function PersonJsonLd() {
     '@type': 'Person',
     name: 'Leon',
     url: 'https://leon.blog',
-    jobTitle: '独立开发者',
+    jobTitle: '资深全栈工程师',
     description:
-      'All in AI 出海 - 从产品经理转全栈，边做边学，努力成为超级个体',
+      '资深全栈工程师，AI 原生实践者，致力于用 AI 推动技术与知识平权',
     sameAs: [
       'https://github.com/leon',
       'https://twitter.com/leon',
     ],
-    knowsAbout: ['AI', '产品管理', '全栈开发', '出海'],
+    knowsAbout: ['AI', '全栈开发', '企业架构', '数字化转型'],
   };
 
   return (
@@ -67,7 +67,7 @@ export function WebsiteJsonLd() {
     name: 'Leon Blog',
     url: 'https://leon.blog',
     description:
-      'All in AI 出海 - 从产品经理转全栈，边做边学，努力成为超级个体',
+      '资深全栈工程师 · AI 原生实践者 · 用 AI 推动技术与知识平权',
     author: {
       '@type': 'Person',
       name: 'Leon',

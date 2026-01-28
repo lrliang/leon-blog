@@ -196,7 +196,7 @@ export const content: Record<Language, HomeContent> = {
     },
     subscribe: {
       title: '订阅更新',
-      description: '获取最新文章和 AI 出海资讯',
+      description: '获取最新文章和 AI 实践资讯',
       placeholder: '输入邮箱订阅更新',
       button: '订阅',
       rss: 'RSS 订阅',

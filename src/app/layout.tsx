@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     template: '%s | Leon Blog',
   },
   description:
-    'All in AI 出海 - 从产品经理转全栈，边做边学，努力成为超级个体',
-  keywords: ['AI', '出海', '全栈开发', '产品经理', '超级个体'],
+    '资深全栈工程师 · AI 原生实践者 · 用 AI 推动技术与知识平权',
+  keywords: ['AI', '全栈开发', '技术平权', '知识平权', 'AI 原生'],
   authors: [{ name: 'Leon' }],
   creator: 'Leon',
   openGraph: {

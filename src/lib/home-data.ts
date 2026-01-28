@@ -20,11 +20,11 @@ export interface SocialLink {
 export const timeline: TimelineItem[] = [
   {
     year: '2025',
-    title: 'All in AI',
-    titleEn: 'All in AI',
-    description: '独立开发者，企业 AI 转型咨询师，专注 AI 赋能人、组织、业务',
+    title: 'AI 原生实践',
+    titleEn: 'AI-Native Practice',
+    description: '企业 AI 转型咨询，用 AI 赋能个人、组织与业务',
     descriptionEn:
-      'Independent developer and enterprise AI transformation consultant, focused on empowering people, organizations, and businesses with AI',
+      'Enterprise AI transformation consulting, empowering individuals, organizations, and businesses with AI',
   },
   {
     year: '2023-2024',
@@ -203,7 +203,7 @@ export const recommendedResources: Resource[] = [
     icon: '💳',
   },
   {
-    name: '出海笔记',
+    name: 'Indie Hackers',
     nameEn: 'Indie Hackers',
     description: '独立开发者社区，获取灵感和支持',
     descriptionEn: 'Community for indie hackers',
