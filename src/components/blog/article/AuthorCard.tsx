@@ -14,7 +14,7 @@ export function AuthorCard() {
         <div className="flex-1">
           <h3 className="mb-1 text-lg font-semibold">Leon</h3>
           <p className="mb-3 text-sm text-muted-foreground">
-            资深全栈工程师 · AI 原生实践者 · 技术与知识平权倡导者
+            资深全栈工程师 · AI 原生实践者 · AI解决方案架构师
           </p>
           <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
             <Button variant="outline" size="sm" asChild>

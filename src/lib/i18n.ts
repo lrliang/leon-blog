@@ -74,7 +74,7 @@ export const content: Record<Language, HomeContent> = {
     hero: {
       greeting: '你好，我是',
       name: 'Leon',
-      tagline: '资深全栈工程师 · AI 原生实践者 · 技术与知识平权倡导者',
+      tagline: '资深全栈工程师 · AI 原生实践者 · AI解决方案架构师',
       description:
         '用 AI 把技术与知识带给更多人，帮助个人与组织在新一轮重塑中获得机会。',
       cta: '了解愿景',
