@@ -7,7 +7,6 @@ import { ReadingProgress } from '@/components/blog/article/ReadingProgress';
 import { AuthorCard } from '@/components/blog/article/AuthorCard';
 import { RelatedPosts } from '@/components/blog/article/RelatedPosts';
 import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
-import { Callout } from '@/components/blog/article/Callout';
 import { ArticleJsonLd } from '@/components/seo/JsonLd';
 import { ShareButtons } from '@/components/blog/article/ShareButtons';
 import { MDXContent } from '@/components/blog/article/MDXContent';
@@ -104,11 +103,6 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Main Content */}
           <div className="min-w-0">
             <PostHeader post={post} readingTime={readingTime} />
-
-            {/* TL;DR */}
-            <Callout type="info" title="TL;DR">
-              {post.description}
-            </Callout>
 
             {/* Article Body */}
             <ErrorBoundary>
