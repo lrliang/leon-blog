@@ -114,6 +114,9 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Share Buttons */}
             <ShareButtons
               title={post.title}
+              description={post.description}
+              date={post.date}
+              tags={post.tags}
               url={`${BASE_URL}/blog/${slug}`}
             />
 
