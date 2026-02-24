@@ -18,12 +18,14 @@ export function PostHeader({ post, readingTime }: PostHeaderProps) {
   return (
     <header className="mb-8">
       {/* Back Link */}
-      <Button variant="ghost" size="sm" asChild className="mb-6 -ml-2">
-        <Link href="/blog">
-          <ArrowLeft className="mr-1 h-4 w-4" />
-          返回博客
-        </Link>
-      </Button>
+      <div data-capture-exclude="">
+        <Button variant="ghost" size="sm" asChild className="mb-6 -ml-2">
+          <Link href="/blog">
+            <ArrowLeft className="mr-1 h-4 w-4" />
+            返回博客
+          </Link>
+        </Button>
+      </div>
 
       {/* Title */}
       <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">

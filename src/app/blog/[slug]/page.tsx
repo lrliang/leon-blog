@@ -7,6 +7,7 @@ import { ReadingProgress } from '@/components/blog/article/ReadingProgress';
 import { AuthorCard } from '@/components/blog/article/AuthorCard';
 import { RelatedPosts } from '@/components/blog/article/RelatedPosts';
 import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
+import { Callout } from '@/components/blog/article/Callout';
 import { ArticleJsonLd } from '@/components/seo/JsonLd';
 import { ShareButtons } from '@/components/blog/article/ShareButtons';
 import { MDXContent } from '@/components/blog/article/MDXContent';
@@ -102,21 +103,32 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="mx-auto max-w-4xl lg:grid lg:max-w-6xl lg:grid-cols-[1fr_200px] lg:gap-12">
           {/* Main Content */}
           <div className="min-w-0">
-            <PostHeader post={post} readingTime={readingTime} />
+            {/* Capturable article area */}
+            <div id="article-capture">
+              <PostHeader post={post} readingTime={readingTime} />
 
-            {/* Article Body */}
-            <ErrorBoundary>
-              <div className="prose prose-neutral dark:prose-invert max-w-none">
-                <MDXContent code={post.body} />
-              </div>
-            </ErrorBoundary>
+              {/* TL;DR */}
+              {post.tldr.length > 0 && (
+                <Callout type="info" title="TL;DR">
+                  <ul className="m-0 list-disc pl-4">
+                    {post.tldr.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </Callout>
+              )}
+
+              {/* Article Body */}
+              <ErrorBoundary>
+                <div className="prose prose-neutral dark:prose-invert max-w-none">
+                  <MDXContent code={post.body} />
+                </div>
+              </ErrorBoundary>
+            </div>
 
             {/* Share Buttons */}
             <ShareButtons
               title={post.title}
-              description={post.description}
-              date={post.date}
-              tags={post.tags}
               url={`${BASE_URL}/blog/${slug}`}
             />
 

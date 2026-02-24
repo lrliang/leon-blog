@@ -9,6 +9,7 @@ const posts = defineCollection({
     slug: s.slug('posts'),
     date: s.isodate(),
     description: s.string().max(999),
+    tldr: s.array(s.string()).default([]),
     tags: s.array(s.string()),
     featured: s.boolean().default(false),
     published: s.boolean().default(true),

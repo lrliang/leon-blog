@@ -16,6 +16,7 @@ export interface Post {
   title: string;
   date: string;
   description: string;
+  tldr: string[];
   tags: string[];
   featured: boolean;
   published: boolean;
@@ -52,6 +53,7 @@ function transformPost(post: (typeof posts)[number]): Post {
     title: post.title,
     date: post.date,
     description: post.description,
+    tldr: post.tldr,
     tags: post.tags,
     featured: post.featured,
     published: post.published,
@@ -68,6 +70,7 @@ function transformPostMeta(post: (typeof posts)[number]): PostMeta {
     title: post.title,
     date: post.date,
     description: post.description,
+    tldr: post.tldr,
     tags: post.tags,
     featured: post.featured,
     published: post.published,
